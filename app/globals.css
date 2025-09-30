@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: theme('colors.background');
+  color: theme('colors.primary');
+  font-feature-settings: "palt";
+}
+
+a {
+  @apply text-current no-underline;
+}
+
+a:hover {
+  color: theme('colors.accent');
+}
