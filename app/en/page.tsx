@@ -94,7 +94,7 @@ export default function HomePage() {
                 href: "/en/gallery",
                 title: "Other Works",
                 meta: "A spectrum of experimental pieces",
-                body: "Gold-splashed finishes, hidasuki firing marks, copper-set glazes, and expressive underglaze copper marbling—each piece marries tradition with innovation, uniting Machinao’s calculated chemistry with instinctive artistry.",
+                body: "Gold-splashed finishes, hidasuki firing marks, copper-set glazes, and expressive underglaze copper marbling all showcase Machinao’s creative spin on tradition. From the chemistry-driven glaze formulas to the deliberate placement of flecks based on classic techniques, you can see both his earnest discipline and playful spirit.",
                 image: "/images/茄子型極小鉢.jpg",
                 alt: "Eggplant-shaped micro pot",
               },
