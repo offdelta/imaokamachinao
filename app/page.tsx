@@ -7,7 +7,7 @@ import { timeline } from "@/data/timeline";
 export default function HomePage() {
   return (
     <div className="space-y-24 pb-24">
-      <section className="bg-white">
+      <section className="-mt-32 bg-white pt-32 md:-mt-36 md:pt-36">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div className="space-y-8">
             <div>
