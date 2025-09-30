@@ -21,7 +21,6 @@ const baseLinks: BaseLink[] = [
   { path: "/#legacy", label: { ja: "技", en: "Legacy" } },
   { path: "/#seal", label: { ja: "落款紹介", en: "Seals" } },
   { path: "/gallery", label: { ja: "作品ギャラリー", en: "Gallery" } },
-  { path: "/#features", label: { ja: "こだわり", en: "Features" } },
   { path: "/contact", label: { ja: "お問い合わせ", en: "Contact" } },
 ];
 
@@ -44,27 +43,38 @@ export function Header() {
   const normalizedPath = isEnglish ? pathname.replace(/^\/en/, "") || "/" : pathname;
   const japanesePath = isEnglish ? normalizedPath || "/" : pathname;
   const englishPath = isEnglish ? pathname : normalizedPath === "/" ? "/en" : `/en${normalizedPath}`;
+  const roleLabel = isEnglish ? "CERAMIC ARTIST" : "陶芸家";
+  const nameLabel = isEnglish ? "Machinao Imaoka" : "今岡町直";
+  const taglineLabel = isEnglish ? "Creative Legacy" : "創作の軌跡";
+  const nameWrapperClass = isEnglish
+    ? "flex flex-col items-start gap-1"
+    : "flex items-baseline gap-2 whitespace-nowrap";
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-background/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6 md:flex-row md:items-center md:justify-between">
-        <Link href={isEnglish ? "/en" : "/"} className="flex items-center gap-4">
-          <span className="relative h-10 w-10 overflow-hidden rounded-full border border-black/10 bg-white">
+        <Link href={isEnglish ? "/en" : "/"} className="flex flex-nowrap items-center gap-4">
+          <span className="relative h-12 w-12 overflow-hidden">
             <Image
               src="/images/top/imaokamachinao-favicon.jpg"
               alt="Machinao Imaoka favicon"
               fill
-              sizes="40px"
+              sizes="48px"
               className="object-cover"
               priority
             />
           </span>
           <span className="font-serif text-xs tracking-[0.2em] leading-none md:text-sm">
-            <span className="block text-base tracking-[0.28em] md:text-lg">
-              陶芸家 今岡町直
+            <span className={nameWrapperClass}>
+              <span className={`text-[0.65rem] tracking-[0.32em] md:text-xs ${isEnglish ? "uppercase" : ""}`}>
+                {roleLabel}
+              </span>
+              <span className="text-base tracking-[0.28em] md:text-lg">
+                {nameLabel}
+              </span>
             </span>
             <span className="mt-1 block font-sans text-[0.75rem] uppercase tracking-[0.48em] text-primary/60 md:text-sm">
-              創作の軌跡
+              {taglineLabel}
             </span>
           </span>
         </Link>

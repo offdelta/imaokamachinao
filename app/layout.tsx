@@ -23,6 +23,14 @@ export const metadata: Metadata = {
   title: "陶芸家 今岡町直 創作の軌跡",
   description:
     "今岡町直の作品を高解像度で記録し、後世に受け渡す公式アーカイブサイト。",
+  icons: {
+    icon: [
+      {
+        url: "/images/top/imaokamachinao-favicon.jpg",
+        type: "image/jpeg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
