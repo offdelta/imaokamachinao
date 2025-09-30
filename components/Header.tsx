@@ -1,53 +1,108 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const links = [
-  { href: "/", label: "トップ" },
-  { href: "/#highlights", label: "展示カテゴリー" },
-  { href: "/#about", label: "町直について" },
-  { href: "/#legacy", label: "技" },
-  { href: "/#seal", label: "落款紹介" },
-  { href: "/gallery", label: "作品ギャラリー" },
-  { href: "/#features", label: "こだわり" },
-  { href: "/contact", label: "お問い合わせ" },
+type Locale = "ja" | "en";
+
+type BaseLink = {
+  path: string;
+  label: {
+    ja: string;
+    en: string;
+  };
+};
+
+const baseLinks: BaseLink[] = [
+  { path: "/", label: { ja: "トップ", en: "Home" } },
+  { path: "/#highlights", label: { ja: "展示カテゴリー", en: "Highlights" } },
+  { path: "/#about", label: { ja: "町直について", en: "About" } },
+  { path: "/#legacy", label: { ja: "技", en: "Legacy" } },
+  { path: "/#seal", label: { ja: "落款紹介", en: "Seals" } },
+  { path: "/gallery", label: { ja: "作品ギャラリー", en: "Gallery" } },
+  { path: "/#features", label: { ja: "こだわり", en: "Features" } },
+  { path: "/contact", label: { ja: "お問い合わせ", en: "Contact" } },
 ];
 
+const createHref = (path: string, locale: Locale) => {
+  const prefix = locale === "en" ? "/en" : "";
+  if (path === "/") {
+    return locale === "en" ? "/en" : "/";
+  }
+  if (path.startsWith("/#")) {
+    const hash = path.slice(2);
+    return prefix ? `${prefix}#${hash}` : `#${hash}`;
+  }
+  return `${prefix}${path}`;
+};
+
 export function Header() {
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
+  const isEnglish = pathname.startsWith("/en");
+  const locale: Locale = isEnglish ? "en" : "ja";
+  const normalizedPath = isEnglish ? pathname.replace(/^\/en/, "") || "/" : pathname;
+  const japanesePath = isEnglish ? normalizedPath || "/" : pathname;
+  const englishPath = isEnglish ? pathname : normalizedPath === "/" ? "/en" : `/en${normalizedPath}`;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-background/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6 md:flex-row md:items-center md:justify-between">
-        <Link
-          href="/"
-          className="font-serif text-xs tracking-[0.2em] leading-none md:text-sm"
-        >
-          <span className="block text-sm tracking-[0.28em] md:text-base">
-            陶芸家 今岡町直
+        <Link href={isEnglish ? "/en" : "/"} className="flex items-center gap-4">
+          <span className="relative h-10 w-10 overflow-hidden rounded-full border border-black/10 bg-white">
+            <Image
+              src="/images/top/imaokamachinao-favicon.jpg"
+              alt="Machinao Imaoka favicon"
+              fill
+              sizes="40px"
+              className="object-cover"
+              priority
+            />
           </span>
-          <span className="mt-1 block font-sans text-[0.65rem] uppercase tracking-[0.48em] text-primary/60 md:text-sm">
-            創作の軌跡
+          <span className="font-serif text-xs tracking-[0.2em] leading-none md:text-sm">
+            <span className="block text-base tracking-[0.28em] md:text-lg">
+              陶芸家 今岡町直
+            </span>
+            <span className="mt-1 block font-sans text-[0.75rem] uppercase tracking-[0.48em] text-primary/60 md:text-sm">
+              創作の軌跡
+            </span>
           </span>
         </Link>
         <nav className="flex flex-wrap items-center gap-4 font-serif text-[0.75rem] tracking-[0.18em] text-primary md:gap-6 md:text-sm">
-          {links.map((link) => {
-            const isAnchor = link.href.startsWith("/#");
+          {baseLinks.map((link) => {
+            const targetPath = createHref(link.path, locale);
+            const isAnchor = link.path.startsWith("/#");
             const isActive = isAnchor
-              ? pathname === "/"
-              : pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              ? normalizedPath === "/"
+              : normalizedPath === link.path || (link.path !== "/" && normalizedPath.startsWith(link.path));
             return (
               <Link
-                key={link.href}
-                href={link.href}
+                key={`${locale}-${link.path}`}
+                href={targetPath}
                 aria-current={isActive ? "page" : undefined}
                 className="text-primary transition-colors hover:text-accent visited:text-primary"
               >
-                {link.label}
+                {link.label[locale]}
               </Link>
             );
           })}
+          <div className="flex items-center gap-2 pl-4 text-[0.65rem] uppercase tracking-[0.32em]">
+            <Link
+              href={japanesePath}
+              aria-current={!isEnglish ? "page" : undefined}
+              className={`transition-colors ${!isEnglish ? "text-primary" : "text-primary/50 hover:text-accent"}`}
+            >
+              JP
+            </Link>
+            <span className="text-primary/30">/</span>
+            <Link
+              href={englishPath}
+              aria-current={isEnglish ? "page" : undefined}
+              className={`transition-colors ${isEnglish ? "text-primary" : "text-primary/50 hover:text-accent"}`}
+            >
+              EN
+            </Link>
+          </div>
         </nav>
       </div>
     </header>

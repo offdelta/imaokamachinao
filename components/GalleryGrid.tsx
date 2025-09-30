@@ -3,11 +3,36 @@
 import { useCallback, useEffect, useState } from "react";
 import type { GalleryGroup } from "@/lib/gallery";
 
-type Props = {
-  groups: GalleryGroup[];
+type Locale = "ja" | "en";
+
+const translations = {
+  ja: {
+    openGallery: (title: string) => `${title} の画像を表示`,
+    totalImages: (count: number) => `全 ${count} 枚`,
+    empty: "画像が登録されていません",
+    modalLabel: (title: string) => `${title} の画像ビューア`,
+    close: "閉じる",
+    previous: "前の画像",
+    next: "次の画像",
+  },
+  en: {
+    openGallery: (title: string) => `View images for ${title}`,
+    totalImages: (count: number) => `${count} images`,
+    empty: "No images have been registered yet.",
+    modalLabel: (title: string) => `Image viewer for ${title}`,
+    close: "Close",
+    previous: "Previous image",
+    next: "Next image",
+  },
 };
 
-export function GalleryGrid({ groups }: Props) {
+type Props = {
+  groups: GalleryGroup[];
+  locale?: Locale;
+};
+
+export function GalleryGrid({ groups, locale = "ja" }: Props) {
+  const t = translations[locale];
   const [activeGroupIndex, setActiveGroupIndex] = useState<number | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
@@ -88,7 +113,7 @@ export function GalleryGrid({ groups }: Props) {
                   type="button"
                   onClick={() => openModal(groupIndex)}
                   className="group block overflow-hidden shadow-card transition hover:-translate-y-1 hover:shadow-soft"
-                  aria-label={`${group.title} の画像を表示`}
+                  aria-label={t.openGallery(group.title)}
                 >
                   <div className="relative aspect-square w-full overflow-hidden">
                     <img
@@ -99,14 +124,14 @@ export function GalleryGrid({ groups }: Props) {
                     />
                     {group.images.length > 1 && (
                       <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 bg-black/60 px-3 py-1 text-xs text-white">
-                        全 {group.images.length} 枚
+                        {t.totalImages(group.images.length)}
                       </span>
                     )}
                   </div>
                 </button>
               ) : (
                 <div className="border border-dashed border-muted/40 bg-background px-6 py-12 text-center text-sm text-muted">
-                  画像が登録されていません
+                  {t.empty}
                 </div>
               )}
             </article>
@@ -119,14 +144,14 @@ export function GalleryGrid({ groups }: Props) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 py-8"
           role="dialog"
           aria-modal="true"
-          aria-label={`${activeGroup.title} の画像ビューア`}
+          aria-label={t.modalLabel(activeGroup.title)}
         >
           <div className="relative w-full max-w-5xl bg-surface p-6 shadow-soft">
             <button
               type="button"
               onClick={closeModal}
               className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center bg-black/60 text-white transition hover:bg-black/80"
-              aria-label="閉じる"
+              aria-label={t.close}
             >
               ×
             </button>
@@ -152,20 +177,20 @@ export function GalleryGrid({ groups }: Props) {
                 <button
                   type="button"
                   onClick={goPrev}
-                  aria-label="前の画像"
+                  aria-label={t.previous}
                   className="group absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center bg-white/80 shadow-md transition hover:bg-accent/80"
                 >
                   <span aria-hidden className="block h-0 w-0 border-y-[7px] border-y-transparent border-r-[12px] border-r-primary transition group-hover:border-r-white" />
-                  <span className="sr-only">前の画像</span>
+                  <span className="sr-only">{t.previous}</span>
                 </button>
                 <button
                   type="button"
                   onClick={goNext}
-                  aria-label="次の画像"
+                  aria-label={t.next}
                   className="group absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center bg-white/80 shadow-md transition hover:bg-accent/80"
                 >
                   <span aria-hidden className="block h-0 w-0 border-y-[7px] border-y-transparent border-l-[12px] border-l-primary transition group-hover:border-l-white" />
-                  <span className="sr-only">次の画像</span>
+                  <span className="sr-only">{t.next}</span>
                 </button>
               </>
             )}

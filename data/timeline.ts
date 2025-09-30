@@ -8,3 +8,29 @@ export const timeline = [
   { year: "1981", event: "初孫の誕生を機に廃窯し、家族とともに東京へ戻る。" },
   { year: "2001", event: "老衰のため永眠（享年76歳）。辰砂をはじめとした多彩な釉薬技術を後世に残す。" },
 ];
+
+export const timelineEn = [
+  { year: "1925", event: "Born in Nakano, Tokyo." },
+  { year: "1944", event: "Worked as a school teacher in Yamanashi Prefecture." },
+  {
+    year: "",
+    event: "Welcomed three daughters and, together with his family, laid the foundations of his ceramic practice.",
+  },
+  { year: "1958", event: "Returned to Tokyo to pursue production and research." },
+  {
+    year: "1967",
+    event: "Built his first kiln in Kodaira, Tokyo, establishing a full-fledged base for his work.",
+  },
+  {
+    year: "1973",
+    event: "Constructed a large kiln in Ito, Shizuoka, and focused on creating pieces centered on Shinsya glazes.",
+  },
+  {
+    year: "1981",
+    event: "Closed the kiln after the birth of his first grandchild and returned to Tokyo with his family.",
+  },
+  {
+    year: "2001",
+    event: "Passed away from natural causes at the age of 76, leaving behind an enduring mastery of Shinsya and other glazes.",
+  },
+];
