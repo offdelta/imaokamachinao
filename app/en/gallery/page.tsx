@@ -12,7 +12,7 @@ export default function GalleryPage() {
         <p className="font-serif text-sm tracking-[0.16em] text-accent">GALLERY</p>
         <h1 className="mt-6 font-serif text-3xl tracking-[0.12em]">Gallery of Works</h1>
         <p className="mt-3 text-xs uppercase tracking-[0.2em] text-muted">
-          *Titles are provisional and will be updated to their formal names.
+          *Titles are provisional, transcribed exactly as Machinao noted them on his original memos for each work.
         </p>
         {groups.length === 0 ? (
           <p className="mt-12 text-sm text-muted">

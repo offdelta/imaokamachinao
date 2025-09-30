@@ -27,6 +27,20 @@ module.exports = {
         soft: "0 18px 45px rgba(0,0,0,0.08)",
         card: "0 12px 30px rgba(0,0,0,0.06)",
       },
+      keyframes: {
+        bob: {
+          "0%, 100%": { transform: "translateY(0) scale(1)" },
+          "50%": { transform: "translateY(-6px) scale(1.03)" },
+        },
+        pulseAccent: {
+          "0%, 100%": { backgroundColor: "#2f2a26" },
+          "50%": { backgroundColor: "#8c3123" },
+        },
+      },
+      animation: {
+        bob: "bob 1.8s ease-in-out infinite",
+        "bob-color": "bob 1.8s ease-in-out infinite, pulseAccent 1s ease-in-out infinite",
+      },
     },
   },
   plugins: [],

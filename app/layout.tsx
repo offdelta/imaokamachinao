@@ -3,6 +3,7 @@ import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PreventImageDownload } from "@/components/PreventImageDownload";
+import { SupportRequestModal } from "@/components/SupportRequestModal";
 import "./globals.css";
 
 const sans = Noto_Sans_JP({
@@ -44,6 +45,7 @@ export default function RootLayout({
         <PreventImageDownload />
         <Header />
         <main className="flex-1 pt-32 md:pt-36">{children}</main>
+        <SupportRequestModal />
         <Footer />
       </body>
     </html>

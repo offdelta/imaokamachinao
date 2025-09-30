@@ -31,7 +31,7 @@ const createHref = (path: string, locale: Locale) => {
   }
   if (path.startsWith("/#")) {
     const hash = path.slice(2);
-    return prefix ? `${prefix}#${hash}` : `#${hash}`;
+    return prefix ? `${prefix}#${hash}` : `/#${hash}`;
   }
   return `${prefix}${path}`;
 };

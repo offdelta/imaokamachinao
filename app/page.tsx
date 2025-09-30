@@ -19,9 +19,12 @@ export default function HomePage() {
                 </span>
               </h1>
             </div>
-            <p className="max-w-xl font-serif text-base text-muted md:text-lg">
-              ご遺族の所蔵する作品を公開し、作品の記録を残すことを目的とした公式ウェブサイトです。遺された貴重な作品画像を通して、今岡町直の創作世界をご鑑賞ください。
-            </p>
+            <div className="max-w-xl space-y-4 font-serif text-base text-muted md:text-lg">
+              <p>ようこそ、今岡町直の公式ウェブサイトへ。</p>
+              <p>祖父・町直が遺した作品を、そしてその創作の軌跡をご覧いただくために、この場所を設えました。</p>
+              <p>このサイトを、単に手元にある作品を公開するだけでなく、世に広まった町直の作品が集う「記録の場」としたいと考えております。</p>
+              <p>皆様と共に、今岡町直の創作世界を未来へ繋いでいけましたら幸いです。</p>
+            </div>
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/gallery"
@@ -124,8 +127,7 @@ export default function HomePage() {
           <p className="font-serif text-sm tracking-[0.16em] text-accent">ABOUT</p>
           <h2 className="mt-6 font-serif text-3xl tracking-[0.12em]">今岡町直（いまおか まちなお）について</h2>
           <p className="mt-6 max-w-3xl text-sm leading-relaxed text-primary/80">
-            本サイトは、陶芸家・今岡町直（1935-2001）の作品と足跡を後世に継承するために、ご遺族が公式に運営しています。
-            ここでは作家の略歴と制作理念を簡潔にご紹介します。
+            ここでは町直の略歴を掲載いたします。
           </p>
 
           <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
@@ -151,10 +153,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-6 py-20">
           <p className="font-serif text-sm tracking-[0.16em] text-accent">LEGACY</p>
           <h2 className="mt-6 font-serif text-3xl tracking-[0.12em] leading-relaxed">
-            今岡町直の功績：至高の「赤」辰砂と後世に残した技術
+            町直の功績：「赤」辰砂を操る技術
           </h2>
           <p className="mt-6 text-sm leading-relaxed text-primary/80">
-            盆栽鉢の陶芸家、今岡町直（いまおか まちなお、1925-2001年）は、特に小品盆栽の世界において、その卓越した釉薬技術で数々の名品を世に送り出したことで知られています。彼がこの世に残した最大の功績の一つが、焼成が極めて難しいとされる「辰砂（しんしゃ）」釉を見事に操り、燃えるような赤から深みのある赤紫色まで、多彩で安定した発色を可能にしたことです。
+            町直は、特に小品盆栽の世界において、その釉薬技術で数々の作品を世に送り出しました。彼がこの世に残した最大の功績の一つが、焼成が極めて難しいとされる「辰砂（しんしゃ）」釉を操り、燃えるような赤から深みのある赤紫色まで、多彩で安定した発色を可能にしたことだと言われています。
           </p>
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
@@ -185,13 +187,10 @@ export default function HomePage() {
           </p>
           <h3 className="mt-10 font-serif text-2xl tracking-[0.1em]">芸術性の向上</h3>
           <p className="mt-4 text-sm leading-relaxed text-primary/80">
-            彼の辰砂鉢は、それまで鉢が果たしてきた「盆栽を入れる器」という役割を超え、鉢そのものが高い鑑賞価値を持つ芸術品としての地位を確立しました。植えられた盆栽の美しさを最大限に引き出すとともに、鉢単体でも見る者を魅了します。
+            彼の辰砂鉢は、それまで鉢が果たしてきた「盆栽を入れる器」という役割を超え、鉢そのものが高い鑑賞価値を持つ芸術品としての地位を確立しました。植えられた盆栽の美しさを最大限に引き出すとともに、鉢単体での芸術性を見出しました。
           </p>
           <p className="mt-4 text-sm leading-relaxed text-primary/80">
-            彼の登場により、盆栽鉢における辰砂釉の価値と表現の幅は飛躍的に広がり、「辰砂の町直」としてその名を不動のものとしました。
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-primary/80">
-            今岡町直は、この辰砂釉の研究に情熱を注ぎ、長年の試行錯誤の末に、その配合や焼成方法を徹底的に探求。これにより、これまで偶然の産物とされがちだった辰砂の美しい赤色を、高いレベルで安定して作品に焼き付ける技術を確立しました。
+            町直は、この辰砂釉の研究に情熱を注ぎ、長年の試行錯誤の末に、その配合や焼成方法を徹底的に探求。これにより、これまで偶然の産物とされがちだった辰砂の美しい赤色を、高いレベルで安定して作品に焼き付ける技術を確立しました。それにより、辰砂釉の価値と表現の幅は飛躍的に広がり、「辰砂の町直」とも呼ばれておりました。
           </p>
         </div>
       </section>
@@ -201,18 +200,18 @@ export default function HomePage() {
           <p className="font-serif text-sm tracking-[0.16em] text-accent">SEAL SIGNATURE</p>
           <h2 className="mt-6 font-serif text-3xl tracking-[0.12em]">落款紹介</h2>
           <p className="mt-6 max-w-3xl text-sm leading-relaxed text-primary/80">
-            陶印は作品の制作年代やシリーズを見分ける重要な手がかりです。今岡町直の作品の落款には「町」と「町直」の2種類が見受けられます。初期には「風」と印字されたものもあります。
+            落款は作品の制作年代やシリーズを見分ける重要な手がかりです。町直の作品の落款には「町」と「町直」の2種類が見受けられます。初期には「風」と印字されたものもあります。
           </p>
           <div className="mt-12 grid gap-10 md:grid-cols-2">
             {[{
               src: "/images/落款町.jpg",
               title: "「町」",
-              description: "柔らかな曲線の中に力強さが宿る丸印。主に1970年代の作品で確認されます。",
+              description: "主に1970年代の作品で確認されます。柔らかな曲線の中に力強さが宿り、町直の実直な性格を反映するようです。サイトロゴのデザインにも使用しております。",
             },
             {
               src: "/images/落款町直.jpg",
               title: "「町直」",
-              description: "四角い枠内に端正な筆致で刻まれた落款。辰砂や造形作品など幅広いシリーズに押されています。",
+              description: "中期から後期にかけて刻まれています。流れるような優しい文字は辰砂や造形作品など幅広いシリーズで確認できます。",
             }].map((item) => (
               <figure key={item.title} className="space-y-4">
                 <div className="relative h-72 w-full overflow-hidden rounded-3xl bg-surface shadow-card">
@@ -242,15 +241,15 @@ export default function HomePage() {
             {[
               {
                 title: "多言語による情報発信",
-                body: "当サイトは、日本語と英語による作品解説を順次整備し、国内外の研究者やコレクターの皆様へ、国境を越えて正確な作品情報をお届けすることを目指しています。",
+                body: "当サイトは、日本語と英語のページを併設しております。国内外の研究者やコレクターの皆様へ、国境を越えてお届けすることを目指しています。",
               },
               {
-                title: "作家の歴史を正しく後世へ",
-                body: "インターネットが普及する以前の時代に生きた作家の足跡と功績を、散逸することなく、正しい形で記録し、後世へと伝えていくことを重要な使命と考えています。",
+                title: "町直の歴史を正しく後世へ",
+                body: "インターネットが普及する以前の時代に生きた町直の足跡を、散逸することなく、後世へと伝えていくことを目標にしています。",
               },
               {
                 title: "愛好家の皆様の交流の場として",
-                body: "この場所が、単なる情報サイトに留まらず、作家を愛する世界中のファンや研究者の皆様が、作品の魅力について語り合い、交流を深めることができるコミュニティとなることを願っています。",
+                body: "この場所が、単なる情報サイトに留まらず、町直鉢を愛してくださる世界中のファンや研究者の皆様が、交流を深めることのできるコミュニティとなることを願っています。",
               },
             ].map((item) => (
               <article key={item.title} className="space-y-4">
