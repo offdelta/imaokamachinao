@@ -1,1 +1,30 @@
-node_modules
+# Dependency directories
+node_modules/
+
+# Build output
+.next/
+out/
+
+# Deployment configs
+.vercel/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Tool caches
+.eslintcache
+.turbo/
