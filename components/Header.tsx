@@ -31,7 +31,7 @@ export function Header() {
             創作の軌跡
           </span>
         </Link>
-        <nav className="flex flex-wrap items-center gap-4 text-sm md:gap-6">
+        <nav className="flex flex-wrap items-center gap-4 font-serif text-[0.75rem] tracking-[0.18em] text-primary md:gap-6 md:text-sm">
           {links.map((link) => {
             const isAnchor = link.href.startsWith("/#");
             const isActive = isAnchor
@@ -41,15 +41,10 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative pb-1 transition-colors ${isActive ? "text-accent" : "text-primary"}`}
+                aria-current={isActive ? "page" : undefined}
+                className="text-primary transition-colors hover:text-accent visited:text-primary"
               >
                 {link.label}
-                <span
-                  className={`absolute inset-x-0 -bottom-px h-0.5 origin-left transform bg-accent transition-transform ${
-                    isActive ? "scale-x-100" : "scale-x-0"
-                  }`}
-                  aria-hidden
-                />
               </Link>
             );
           })}

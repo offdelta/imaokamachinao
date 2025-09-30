@@ -19,3 +19,9 @@ a {
 a:hover {
   color: theme('colors.accent');
 }
+
+img,
+picture {
+  -webkit-user-drag: none;
+  user-select: none;
+}

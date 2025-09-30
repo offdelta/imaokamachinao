@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { PreventImageDownload } from "@/components/PreventImageDownload";
 import "./globals.css";
 
 const sans = Noto_Sans_JP({
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${sans.variable} ${serif.variable}`}>
       <body className="flex min-h-screen flex-col bg-background font-sans text-primary">
+        <PreventImageDownload />
         <Header />
         <main className="flex-1 pt-32 md:pt-36">{children}</main>
         <Footer />

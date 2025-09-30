@@ -19,7 +19,7 @@ export default function HomePage() {
                 </span>
               </h1>
             </div>
-            <p className="max-w-xl text-base text-muted md:text-lg">
+            <p className="max-w-xl font-serif text-base text-muted md:text-lg">
               ご遺族の所蔵する作品を公開し、作品の記録を残すことを目的とした公式ウェブサイトです。遺された貴重な作品画像を通して、今岡町直の創作世界をご鑑賞ください。
             </p>
             <div className="flex flex-wrap gap-4">
