@@ -178,10 +178,10 @@ export default function HomePage() {
           </p>
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
-              { src: "/images/鶏血釉廃窯鉢.jpg", alt: "Keiketsu glaze pot" },
-              { src: "/images/辰砂丸鉢.jpg", alt: "Shinsya round pot" },
-              { src: "/images/桃花紅丸鉢.jpg", alt: "Peach blossom red pot" },
-              { src: "/images/窯変釉撫肩角鉢.jpg", alt: "Kiln-varied shoulder pot" },
+              { src: "/images/鶏血釉反縁正方直足廃窯鉢-正面.jpg", alt: "Keiketsu glaze pot" },
+              { src: "/images/辰砂釉丸鉢直足小鉢-正面.jpg", alt: "Shinsya round pot" },
+              { src: "/images/桃花紅釉円形鉢-正面.jpg", alt: "Peach blossom red pot" },
+              { src: "/images/辰砂釉窯変撫肩角鉢-正面.jpg", alt: "Kiln-varied shoulder pot" },
             ].map((image) => (
               <div key={image.src} className="relative aspect-[4/5] overflow-hidden">
                 <Image
