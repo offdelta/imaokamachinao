@@ -180,7 +180,7 @@ export default function HomePage() {
           </p>
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
-              { src: "/images/鶏血釉反縁正方直足廃窯鉢-正面.jpg.jpg", alt: "鶏血釉廃窯鉢" },
+              { src: "/images/鶏血釉反縁正方直足廃窯鉢-正面.jpg", alt: "鶏血釉廃窯鉢" },
               { src: "/images/辰砂釉丸鉢直足小鉢-正面.jpg", alt: "辰砂丸鉢" },
               { src: "/images/桃花紅釉円形鉢-正面.jpg", alt: "桃花紅丸鉢" },
               { src: "/images/辰砂釉窯変撫肩角鉢-正面.jpg", alt: "窯変釉撫肩角鉢" },
