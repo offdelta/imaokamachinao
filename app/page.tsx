@@ -145,7 +145,7 @@ export default function HomePage() {
       <section id="about" className="bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <p className="font-serif text-sm tracking-[0.16em] text-accent">ABOUT</p>
-          <h2 className="mt-6 font-serif text-3xl tracking-[0.12em]">今岡町直（いまおか まちなお）について</h2>
+          <h2 className="mt-6 font-serif text-3xl tracking-[0.12em]">今岡町直<span className="text-sm">（いまおか まちなお）</span>について</h2>
           <p className="mt-6 max-w-3xl text-sm leading-relaxed text-primary/80">
             ここでは町直の略歴を掲載いたします。
           </p>
