@@ -51,39 +51,39 @@ export default function HomePage() {
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             {[
               {
-                href: "/gallery",
+                href: "/gallery?filter=shinsa",
                 title: "辰砂",
                 meta: "深紅が映える代表作",
                 body: "窯の中で釉薬が変化する「窯変（ようへん）」を巧みにコントロールし、辰砂の赤に紫や藍色が混じり合った景色を生み出しました。この「窯変辰砂」は、町直の代名詞です。",
-                image: "/images/辰砂踊りの図その1.jpg",
+                image: "/images/辰砂釉正方直足鉢おどりその1図-正面.jpg",
                 alt: "辰砂踊りの図その1",
               },
               {
-                href: "/gallery",
+                href: "/gallery?filter=kaeragi",
                 title: "梅花皮（かいらぎ）",
                 meta: "肌理が語る景色",
                 body: "彼のもう一つの代名詞が「梅花皮」と呼ばれる技法です。素地と釉薬の収縮率の違いを利用して表面に大きな貫入を生み、その模様が梅の木の皮に似ていることから名付けられました。美しく均一な梅花皮を作り出すには高度な技術が要求され、これも町直が得意とした表現の一つです。",
-                image: "/images/梅の木.jpg",
+                image: "/images/梅花皮釉円形三足鉢-梅の木-正面.jpg",
                 alt: "梅の木",
               },
               {
-                href: "/gallery",
+                href: "/gallery?filter=seiji",
                 title: "青磁釉",
                 meta: "静謐な青の世界",
                 body: "彼の青磁釉は「練っとりとした深みのある発色」が最大の特徴です。釉薬に厚みと独特の粘り気が感じられる重厚な質感に加え、窯変による微妙な濃淡や白へ寄せた青も見られ、辰砂と同様に高い釉薬技術を物語っています。",
-                image: "/images/クローム青磁キツネの図.jpg",
+                image: "/images/クローム青磁釉正方直足鉢-キツネの図-正面.jpg",
                 alt: "クローム青磁キツネの図",
               },
               {
-                href: "/gallery",
+                href: "/gallery?filter=kannyu",
                 title: "大貫入釉",
                 meta: "器肌に刻まれた文様",
                 body: "素地と釉薬の収縮率の違いを利用し、釉薬表面に細かなヒビを入れる技法です。町直の作品ではこのヒビが景色となり、計算されたデザインとして大きな魅力を放ちます。彼の貫入釉・大貫入釉は偶然ではなく、緻密にコントロールされた技術によって生み出されました。",
-                image: "/images/貫入撫肩鉢.jpg",
+                image: "/images/青磁釉墨貫入撫肩直足鉢.jpg",
                 alt: "貫入撫肩鉢",
               },
               {
-                href: "/gallery",
+                href: "/gallery?filter=mame",
                 title: "豆鉢",
                 meta: "手のひらサイズの造形美",
                 body: "指先に乗るほどの極小サイズでありながら、辰砂や梅花皮（かいらぎ）、窯変釉など高度な釉薬技術が凝縮されているのが特徴です。単なる器ではなく、美術品としての完成度を誇ります。豆盆栽を飾る「豆盆の景」において、主役の植物を引き立てつつ景色の一部となる重要な役割を果たします。",
@@ -95,27 +95,47 @@ export default function HomePage() {
                 title: "その他",
                 meta: "多彩な作品群",
                 body: "金飛ばし、火襷（ひだすき）、銅置、釉裏紅乱斑模様など、町直の独創的な作品群は、伝統技法に独自のアレンジを加えた点に特徴があります。釉薬の化学変化を計算し尽くして再現する技法や、伝統技法を基に斑点を飛ばす技術からは、町直の実直さと遊び心の双方を見ることができます。",
-                image: "/images/茄子型極小鉢.jpg",
+                image: "/images/黒釉黄釉茄子型極小鉢.jpg",
                 alt: "茄子型極小鉢",
               },
-            ].map((item) => (
-              <article
-                key={item.title}
-                className="group overflow-hidden rounded-3xl bg-surface shadow-card transition hover:-translate-y-1 hover:shadow-soft"
-              >
-                {/* <Link href={item.href} className="block">…</Link> */}
-                <div
-                  className="h-56 w-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${item.image})` }}
-                  aria-label={item.alt}
-                />
-                <div className="space-y-3 px-6 py-6">
-                  <h3 className="font-serif text-xl tracking-[0.06em] group-hover:text-accent">{item.title}</h3>
-                  <p className="text-sm text-muted">{item.meta}</p>
-                  <p className="text-sm leading-relaxed text-primary/80">{item.body}</p>
-                </div>
-              </article>
-            ))}
+            ].map((item) => {
+              const imageUrl = encodeURI(item.image);
+              const cardContent = (
+                <>
+                  <div
+                    className="h-56 w-full bg-cover bg-center"
+                    style={{ backgroundImage: `url("${imageUrl}")` }}
+                    aria-label={item.alt}
+                  />
+                  <div className="space-y-3 px-6 py-6">
+                    <h3 className="font-serif text-xl tracking-[0.06em] group-hover:text-accent">{item.title}</h3>
+                    <p className="text-sm text-muted">{item.meta}</p>
+                    <p className="text-sm leading-relaxed text-primary/80">{item.body}</p>
+                  </div>
+                </>
+              );
+
+              if (item.href) {
+                return (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    className="group block overflow-hidden rounded-3xl bg-surface shadow-card transition hover:-translate-y-1 hover:shadow-soft"
+                  >
+                    {cardContent}
+                  </Link>
+                );
+              }
+
+              return (
+                <article
+                  key={item.title}
+                  className="group overflow-hidden rounded-3xl bg-surface shadow-card transition hover:-translate-y-1 hover:shadow-soft"
+                >
+                  {cardContent}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

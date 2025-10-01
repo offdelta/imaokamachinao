@@ -51,39 +51,39 @@ export default function HomePage() {
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             {[
               {
-                href: "/en/gallery",
+                href: "/en/gallery?filter=shinsa",
                 title: "Shinsya (Cinnabar Red)",
                 meta: "Hallmark pieces glowing in crimson",
                 body: "By expertly guiding kiln-transformation (yohen), Machinao blended vivid crimson with purples and indigo tones. This kiln-varied Shinsya glaze became synonymous with his name.",
-                image: "/images/辰砂踊りの図その1.jpg",
+                image: "/images/辰砂釉正方直足鉢おどりその1図-正面.jpg",
                 alt: "Shinsya vase, Dancing Figure No.1",
               },
               {
-                href: "/en/gallery",
+                href: "/en/gallery?filter=kaeragi",
                 title: "Kairagi Texture",
                 meta: "Textures that tell a story",
                 body: "Another signature technique is the kairagi glaze. Leveraging the different shrinkage rates of clay and glaze, he produced dramatic crackled surfaces reminiscent of plum bark—an achievement that demands great skill.",
-                image: "/images/梅の木.jpg",
+                image: "/images/梅花皮釉円形三足鉢-梅の木-正面.jpg",
                 alt: "Kairagi plum tree pot",
               },
               {
-                href: "/en/gallery",
+                href: "/en/gallery?filter=seiji",
                 title: "Celadon Glazes",
                 meta: "A tranquil world of blue",
                 body: "His celadon work is noted for its dense, almost creamy depth of color. Thick, tactile glazes and subtle kiln variations reveal a mastery on par with his celebrated Shinsya pieces.",
-                image: "/images/クローム青磁キツネの図.jpg",
+                image: "/images/クローム青磁釉正方直足鉢-キツネの図-正面.jpg",
                 alt: "Chrome celadon fox motif pot",
               },
               {
-                href: "/en/gallery",
+                href: "/en/gallery?filter=kannyu",
                 title: "Large Craquelure Glaze",
                 meta: "Patterns etched into the surface",
                 body: "Harnessing the shrinkage difference between body and glaze, he created intricate crackle patterns. In Machinao’s works these lines become deliberate designs, meticulously controlled rather than accidental.",
-                image: "/images/貫入撫肩鉢.jpg",
+                image: "/images/青磁釉墨貫入撫肩直足鉢.jpg",
                 alt: "Large craquelure shoulder bowl",
               },
               {
-                href: "/en/gallery",
+                href: "/en/gallery?filter=mame",
                 title: "Miniature Pots",
                 meta: "Palm-sized expressions of form",
                 body: "Even pieces small enough to rest on a fingertip compress advanced techniques such as Shinsya, kairagi, and kiln-varied glazes. They are complete works of art that elevate the ‘mame-bonsai’ displays they accompany.",
@@ -95,26 +95,47 @@ export default function HomePage() {
                 title: "Other Works",
                 meta: "A spectrum of experimental pieces",
                 body: "Gold-splashed finishes, hidasuki firing marks, copper-set glazes, and expressive underglaze copper marbling all showcase Machinao’s creative spin on tradition. From the chemistry-driven glaze formulas to the deliberate placement of flecks based on classic techniques, you can see both his earnest discipline and playful spirit.",
-                image: "/images/茄子型極小鉢.jpg",
+                image: "/images/黒釉黄釉茄子型極小鉢.jpg",
                 alt: "Eggplant-shaped micro pot",
               },
-            ].map((item) => (
-              <article
-                key={item.title}
-                className="group overflow-hidden rounded-3xl bg-surface shadow-card transition hover:-translate-y-1 hover:shadow-soft"
-              >
-                <div
-                  className="h-56 w-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${item.image})` }}
-                  aria-label={item.alt}
-                />
-                <div className="space-y-3 px-6 py-6">
-                  <h3 className="font-serif text-xl tracking-[0.06em] group-hover:text-accent">{item.title}</h3>
-                  <p className="text-sm text-muted">{item.meta}</p>
-                  <p className="text-sm leading-relaxed text-primary/80">{item.body}</p>
-                </div>
-              </article>
-            ))}
+            ].map((item) => {
+              const imageUrl = encodeURI(item.image);
+              const cardContent = (
+                <>
+                  <div
+                    className="h-56 w-full bg-cover bg-center"
+                    style={{ backgroundImage: `url("${imageUrl}")` }}
+                    aria-label={item.alt}
+                  />
+                  <div className="space-y-3 px-6 py-6">
+                    <h3 className="font-serif text-xl tracking-[0.06em] group-hover:text-accent">{item.title}</h3>
+                    <p className="text-sm text-muted">{item.meta}</p>
+                    <p className="text-sm leading-relaxed text-primary/80">{item.body}</p>
+                  </div>
+                </>
+              );
+
+              if (item.href) {
+                return (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    className="group block overflow-hidden rounded-3xl bg-surface shadow-card transition hover:-translate-y-1 hover:shadow-soft"
+                  >
+                    {cardContent}
+                  </Link>
+                );
+              }
+
+              return (
+                <article
+                  key={item.title}
+                  className="group overflow-hidden rounded-3xl bg-surface shadow-card transition hover:-translate-y-1 hover:shadow-soft"
+                >
+                  {cardContent}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

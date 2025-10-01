@@ -45,7 +45,7 @@ export function SupportRequestModal() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-[60] rounded-full bg-primary px-6 py-3 text-sm font-semibold tracking-[0.2em] text-white shadow-lg transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent md:bottom-8 md:right-8 animate-bob-color"
+        className="fixed right-4 top-4 z-[60] rounded-full bg-primary px-6 py-3 text-sm font-semibold tracking-[0.2em] text-white shadow-lg transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent md:bottom-8 md:right-8 md:top-auto animate-bob-color"
       >
         {text.button}
       </button>
