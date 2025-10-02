@@ -39,15 +39,30 @@ export function SupportRequestModal() {
     () => "mailto:imaoka.machinao.official@gmail.com",
     []
   );
+  const buttonPositionClass =
+    locale === "en"
+      ? "right-4 bottom-6 md:bottom-8 md:right-8 md:top-auto"
+      : "right-4 top-4 md:bottom-8 md:right-8 md:top-auto";
+  const buttonLayoutClass =
+    locale === "en"
+      ? "flex-col items-center text-center leading-tight"
+      : "items-center";
 
   return (
     <>
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed right-4 top-4 z-[60] rounded-full bg-primary px-6 py-3 text-sm font-semibold tracking-[0.2em] text-white shadow-lg transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent md:bottom-8 md:right-8 md:top-auto animate-bob-color"
+        className={`fixed z-[60] inline-flex justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold tracking-[0.2em] text-white shadow-lg transition hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent animate-bob-color ${buttonPositionClass} ${buttonLayoutClass}`}
       >
-        {text.button}
+        {locale === "en" ? (
+          <>
+            <span>Get</span>
+            <span>Involved!</span>
+          </>
+        ) : (
+          <span>{text.button}</span>
+        )}
       </button>
 
       {open && (
