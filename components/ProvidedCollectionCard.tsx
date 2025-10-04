@@ -256,25 +256,21 @@ export function ProvidedCollectionCard({ collection, locale }: Props) {
                 type="button"
                 onClick={handlePrev}
                 aria-label={locale === "ja" ? "前の写真" : "Previous photo"}
-                className="group absolute left-5 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-primary shadow-md transition hover:-translate-y-[55%] hover:bg-primary hover:text-white"
+                className="group absolute left-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/40 text-primary shadow transition hover:-translate-y-[55%] hover:bg-primary hover:text-white"
               >
-                <span aria-hidden className="text-xl leading-none">‹</span>
+                <span aria-hidden className="text-xl font-semibold">‹</span>
               </button>
               <button
                 type="button"
                 onClick={handleNext}
                 aria-label={locale === "ja" ? "次の写真" : "Next photo"}
-                className="group absolute right-5 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-primary shadow-md transition hover:-translate-y-[45%] hover:bg-primary hover:text-white"
+                className="group absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/40 text-primary shadow transition hover:-translate-y-[45%] hover:bg-primary hover:text-white"
               >
-                <span aria-hidden className="text-xl leading-none">›</span>
+                <span aria-hidden className="text-xl font-semibold">›</span>
               </button>
             </>
           )}
-          {total > 1 && (
-            <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-white/90 px-4 py-1 text-xs text-primary/80 shadow-md">
-              {getPhotoLabel(locale, normalizedIndex, total)}
-            </div>
-          )}
+          {/* Removed photo counter overlay */}
         </div>
         {total > 1 && (
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
@@ -295,7 +291,7 @@ export function ProvidedCollectionCard({ collection, locale }: Props) {
           </div>
         )}
       </div>
-      <div className="flex flex-col justify-between gap-10 p-8 md:p-10">
+      <div className="flex flex-col justify-between gap-10 px-8 pb-8 pt-4 md:px-10 md:pb-10 md:pt-5">
         <header className="space-y-3">
           <p className="font-sans text-xs uppercase tracking-[0.3em] text-accent/70">
             {locale === "ja" ? "COLLECTOR STORIES" : "COLLECTOR STORIES"}
@@ -332,7 +328,7 @@ export function ProvidedCollectionCard({ collection, locale }: Props) {
               <p className="font-serif text-sm tracking-[0.08em] text-primary/80">
                 {locale === "ja" ? "キーワード" : "Keywords"}
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1">
                 {allKeywords.map((keyword) => {
                   const isActive = currentKeywordSet.has(keyword);
                   return (
@@ -340,10 +336,10 @@ export function ProvidedCollectionCard({ collection, locale }: Props) {
                       key={`${collection.key}-${keyword}`}
                       type="button"
                       aria-pressed={isActive}
-                      className={`rounded-full border px-4 py-2 text-xs transition disabled:cursor-not-allowed ${
+                      className={`rounded-full border px-2.5 py-1 text-[0.68rem] leading-tight transition disabled:cursor-not-allowed ${
                         isActive
                           ? "border-accent/60 bg-accent/10 text-accent"
-                          : "border-primary/10 bg-white/70 text-primary hover:border-primary/20 hover:bg-primary/5"
+                          : "border-primary/10 bg-white/90 text-primary hover:border-primary/20 hover:bg-primary/5"
                       }`}
                       disabled
                     >
@@ -370,26 +366,78 @@ export function ProvidedCollectionCard({ collection, locale }: Props) {
             className="absolute inset-0 bg-black/60"
             onClick={closeModal}
           />
-          <div className="relative z-10 w-full max-w-5xl">
+          <div className="relative z-10 w-full max-w-5xl rounded-3xl bg-white/95 p-6 shadow-2xl">
             <div className="flex justify-end">
               <button
                 type="button"
                 onClick={closeModal}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-primary shadow-md transition hover:bg-primary hover:text-white"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/5 text-primary transition hover:bg-primary hover:text-white"
                 aria-label={locale === "ja" ? "閉じる" : "Close"}
               >
                 <span aria-hidden className="text-lg">×</span>
               </button>
             </div>
-            <div className="mt-4 flex justify-center">
-              <Image
-                src={current.src}
-                alt={buildAlt(collection.displayName, current.isoDate, locale, normalizedIndex, total, current.label)}
-                width={modalImageWidth}
-                height={modalImageHeight}
-                className={modalImageClass}
-                priority
-              />
+            <div className="mt-4">
+              <div className="relative mx-auto flex max-w-4xl items-center justify-center">
+                <div className="relative">
+                  <Image
+                    src={current.src}
+                    alt={buildAlt(collection.displayName, current.isoDate, locale, normalizedIndex, total, current.label)}
+                    width={modalImageWidth}
+                    height={modalImageHeight}
+                    className={modalImageClass}
+                    priority
+                  />
+                  {total > 1 && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={handlePrev}
+                        aria-label={locale === "ja" ? "前の写真" : "Previous photo"}
+                        className="group absolute left-1 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/40 text-primary shadow transition hover:-translate-y-[55%] hover:bg-primary hover:text-white"
+                      >
+                        <span aria-hidden className="text-xl font-semibold">‹</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleNext}
+                        aria-label={locale === "ja" ? "次の写真" : "Next photo"}
+                        className="group absolute right-1 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/40 text-primary shadow transition hover:-translate-y-[45%] hover:bg-primary hover:text-white"
+                      >
+                        <span aria-hidden className="text-xl font-semibold">›</span>
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+              {total > 1 && (
+                <div className="mt-5 flex flex-wrap justify-center gap-2">
+                  {collection.images.map((image, idx) => {
+                    const isActive = idx === normalizedIndex;
+                    return (
+                      <button
+                        key={`${collection.key}-modal-thumb-${image.fileName ?? idx}`}
+                        type="button"
+                        onClick={() => setActiveIndex(idx)}
+                        className={`relative h-16 w-16 overflow-hidden rounded-2xl border transition ${
+                          isActive
+                            ? "border-accent shadow-lg shadow-accent/30"
+                            : "border-transparent shadow-sm hover:border-primary/30"
+                        }`}
+                        aria-label={`${locale === "ja" ? "写真" : "Photo"} ${idx + 1}`}
+                      >
+                        <Image
+                          src={image.src}
+                          alt={buildAlt(collection.displayName, image.isoDate, locale, idx, total, image.label)}
+                          fill
+                          sizes="64px"
+                          className="object-cover"
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         </div>
