@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -11,10 +12,12 @@ const copy = {
       "この度は、今岡町直の作品世界に触れていただき、誠にありがとうございます。",
       "このサイトは、町直が遺した作品を公開し、彼が生涯を捧げた創作の記録を後世に残したいという想いから立ち上げました。",
       "生前、町直が心を込めて作り上げた作品の多くは、頒布会などを通じて皆様の暮らしの中へと旅立っていき、私共の手元にはそのごく一部の作品しか遺っておりません。皆様のお手元で今も大切にされている鉢の一つひとつもまた、その創作活動を物語る上で欠かすことのできない大切な記録であると認識しております。",
-      "そこで、皆様にお願いがございます。 もし、お手元に町直鉢をお持ちの方がいらっしゃいましたら、そのお写真を本サイト管理者アドレス（imaoka.machinao.official@gmail.com）までお寄せいただけないでしょうか。",
-      "お寄せいただいた作品は、このウェブサイトや公式インスタグラムでご紹介させていただき、町直の創作世界の全貌を伝えるためのデジタルアーカイブとして、皆様と共に育てていきたいと願っております。町直の作品を愛してくださった皆様とのご縁を、このような形で繋いでいけますことを心より願っております。",
+      "そこで、皆様にお願いがございます。 もし、お手元に町直鉢をお持ちの方がいらっしゃいましたら、そのお写真を本サイト管理者アドレス（imaoka.machinao.official@gmail.com）、または公式SNSアカウントにお寄せいただけないでしょうか。",
+      "お寄せいただいた作品は、このウェブサイトや公式SNSでご紹介させていただき、町直の創作世界の全貌を伝えるためのデジタルアーカイブとして、皆様と共に育てていきたいと願っております。町直の作品を愛してくださった皆様とのご縁を、このような形で繋いでいけますことを心より願っております。",
     ],
     contact: "メールを送信",
+    xLabel: "@machinao_imaoka",
+    instagramLabel: "@imaoka.machinao.official",
   },
   en: {
     button: "Get Involved!",
@@ -27,8 +30,15 @@ const copy = {
       "With your permission, we would like to feature the pieces you share on this website and on our official Instagram, growing this digital archive together so that Machinao’s creative universe can be passed forward. We hope to stay connected with everyone who has treasured his work.",
     ],
     contact: "Send an Email",
+    xLabel: "@machinao_imaoka",
+    instagramLabel: "@imaoka.machinao.official",
   },
 };
+
+const xHandle = "@machinao_imaoka";
+const instagramHandle = "@imaoka.machinao.official";
+const xUrl = "https://x.com/machinao_imaoka?s=11";
+const instagramUrl = "https://www.instagram.com/imaoka.machinao.official/";
 
 export function SupportRequestModal() {
   const pathname = usePathname() || "/";
@@ -88,13 +98,50 @@ export function SupportRequestModal() {
                 </p>
               ))}
               <div className="pt-2">
-                <a
-                  href={contactHref}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-primary px-5 py-2 text-xs uppercase tracking-[0.24em] text-primary transition hover:border-accent hover:text-accent"
-                  onClick={() => setOpen(false)}
-                >
-                  {text.contact}
-                </a>
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href={contactHref}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-primary px-5 py-2 text-xs uppercase tracking-[0.24em] text-primary transition hover:border-accent hover:text-accent"
+                    onClick={() => setOpen(false)}
+                  >
+                    {text.contact}
+                  </a>
+                  <a
+                    href={xUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 px-4 py-2 text-[0.65rem] uppercase tracking-[0.24em] text-primary transition hover:border-accent/50 hover:bg-accent/5 hover:text-accent"
+                    onClick={() => setOpen(false)}
+                  >
+                    <Image
+                      src="/images/logo-icons/x-logo.jpg"
+                      alt="X ロゴ"
+                      width={16}
+                      height={16}
+                      className="h-4 w-4 object-contain"
+                    />
+                    <span>{locale === "ja" ? xHandle : text.xLabel}</span>
+                  </a>
+                  <a
+                    href={instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 px-4 py-2 text-[0.65rem] uppercase tracking-[0.24em] text-primary transition hover:border-accent/50 hover:bg-accent/5 hover:text-accent"
+                    onClick={() => setOpen(false)}
+                  >
+                    <svg
+                      aria-hidden
+                      viewBox="0 0 24 24"
+                      width="16"
+                      height="16"
+                      className="h-4 w-4 text-primary"
+                      fill="currentColor"
+                    >
+                      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm6.25-3.75a.75.75 0 1 1-.75.75.75.75 0 0 1 .75-.75z" />
+                    </svg>
+                    <span>{locale === "ja" ? instagramHandle : text.instagramLabel}</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

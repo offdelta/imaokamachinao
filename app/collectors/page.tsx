@@ -31,10 +31,10 @@ export default function CollectorsPage() {
           <p className="font-sans text-xs uppercase tracking-[0.32em] text-accent">SHARED ARCHIVE</p>
           <h1 className="font-serif text-4xl tracking-[0.12em] text-primary md:text-5xl">コレクターズギャラリー</h1>
           <p className="text-sm leading-loose text-primary/80">
-            今岡町直の作品を愛蔵されている皆さまから、SNSやメッセージを通じてお寄せいただいた町直鉢・盆栽鉢の写真をまとめています。辰砂や梅花皮などの景色を、実際の盆栽植栽とともにお楽しみください。
+            今岡町直の作品をご愛好いただいている皆さまから、SNSやメッセージを通じてお寄せいただいた町直鉢・盆栽鉢の写真をまとめています。持ち主の個性や美意識を反映して表情を変える鉢の多彩な趣をお楽しみください。
           </p>
           <p className="text-sm leading-loose text-primary/80">
-            掲載希望の方は、SNSリンクとともに高解像度の画像データをお送りください。作品の背景や想い出のエピソードなど、短いコメントも歓迎です。
+            掲載にご協力くださる方は、画像データをお送りください。ご自身のSNSアカウントから今岡町直のアカウントに送ってくださっても構いません。作品の背景や想い出のエピソードなど、短いコメントも歓迎です。
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
             <Link
