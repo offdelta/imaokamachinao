@@ -21,6 +21,7 @@ const baseLinks: BaseLink[] = [
   { path: "/#legacy", label: { ja: "技", en: "Legacy" } },
   { path: "/#seal", label: { ja: "落款紹介", en: "Seals" } },
   { path: "/gallery", label: { ja: "作品ギャラリー", en: "Gallery" } },
+  { path: "/collectors", label: { ja: "コレクターズギャラリー", en: "Collectors" } },
   { path: "/contact", label: { ja: "お問い合わせ", en: "Contact" } },
 ];
 

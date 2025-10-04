@@ -1,8 +1,23 @@
+import type { Metadata } from "next";
 import { getGalleryGroups } from "@/lib/gallery";
 import { GalleryFilterBoard } from "@/components/GalleryFilterBoard";
 import { resolveGalleryFilter } from "@/lib/gallery-filters";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Machinao Imaoka Gallery｜Shinsya & Kairagi Bonsai Pots",
+  description:
+    "Browse Machinao Imaoka’s bonsai pots by category—Shinsya reds, kairagi crackle, celadon blues, miniature works—in this high-resolution gallery for collectors.",
+  keywords: [
+    "Machinao Imaoka",
+    "町直",
+    "Machinao bonsai pots",
+    "Shinsya",
+    "Kairagi",
+    "bonsai pot gallery",
+  ],
+};
 
 type PageProps = {
   searchParams?: Record<string, string | string[] | undefined>;
@@ -23,6 +38,9 @@ export default function GalleryPage({ searchParams }: PageProps) {
       <div className="mx-auto max-w-6xl px-6 py-20">
         <p className="font-serif text-sm tracking-[0.16em] text-accent">GALLERY</p>
         <h1 className="mt-6 font-serif text-3xl tracking-[0.12em]">Gallery of Works</h1>
+        <p className="mt-4 text-sm leading-relaxed text-primary/80">
+          Filter Machinao’s bonsai pots by Shinsya, kairagi, celadon, miniature works, and more. Each category highlights how his craftsmanship serves shohin and mame bonsai displays.
+        </p>
         <p className="mt-3 text-xs uppercase tracking-[0.2em] text-muted">
           *Titles are provisional, drawn from Machinao’s original notes and the family’s recollections.
         </p>

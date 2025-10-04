@@ -1,8 +1,25 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { PortraitSlider } from "@/components/PortraitSlider";
 import { timelineEn } from "@/data/timeline";
+
+export const metadata: Metadata = {
+  title: "Machinao Imaoka Bonsai Pots Archive｜Machinao’s Shinsya Legacy",
+  description:
+    "Discover Machinao Imaoka’s signature bonsai pots—Machinao’s Shinsya red glazes, kairagi textures, and miniature works—in this official bilingual archive with high-resolution imagery.",
+  keywords: [
+    "Machinao Imaoka",
+    "町直",
+    "Machinao bonsai pots",
+    "Machinao pot",
+    "bonsai pot",
+    "Shinsya",
+    "Kairagi",
+    "Machinao Imaoka archive",
+  ],
+};
 
 export default function HomePage() {
   return (
@@ -15,15 +32,15 @@ export default function HomePage() {
               <h1 className="mt-6 font-serif text-4xl tracking-[0.1em] leading-tight md:text-5xl">
                 <span className="block">Machinao Imaoka, Ceramic Artist</span>
                 <span className="mt-4 block font-sans text-base uppercase tracking-[0.5em] text-accent md:text-lg">
-                  Creative Legacy
+                  Bonsai Pots &amp; Creative Legacy
                 </span>
               </h1>
             </div>
             <div className="max-w-xl space-y-4 font-serif text-base text-muted md:text-lg">
-              <p>Welcome to the official website of Machinao Imaoka.</p>
-              <p>We prepared this space so you can experience the works he left behind and follow the arc of his creative journey.</p>
-              <p>Our aim is not only to share the pieces currently in our care, but to build an archive where Machinao’s works—wherever they reside—can gather as a living record.</p>
-              <p>We hope to carry Machinao Imaoka’s creative world into the future together with you.</p>
+              <p>Welcome to the official website of Machinao Imaoka (町直).</p>
+              <p>We prepared this archive to present his Machinao bonsai pots—Shinsya reds, kairagi textures, celadon works—and to trace the arc of his creative journey.</p>
+              <p>Our aim is not only to share the pieces currently in our care, but to build a living record where Machinao’s bonsai pots can gather across collections worldwide.</p>
+              <p>We hope to carry forward the beauty of Machinao Imaoka’s bonsai pottery together with enthusiasts and researchers everywhere.</p>
             </div>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -47,56 +64,59 @@ export default function HomePage() {
       <section id="highlights">
         <div className="mx-auto max-w-6xl px-6">
           <p className="font-serif text-sm tracking-[0.16em] text-accent">HIGHLIGHTS</p>
-          <h2 className="mt-6 font-serif text-3xl tracking-[0.12em]">Signature Categories on Exhibit</h2>
+          <h2 className="mt-6 font-serif text-3xl tracking-[0.12em]">Signature Bonsai Pot Categories</h2>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-primary/80">
+            Explore the kiln-varied Shinsya reds, kairagi crackled skins, celadon blues, and miniature Machinao bonsai pots that define Machinao Imaoka’s legacy.
+          </p>
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             {[
               {
                 href: "/en/gallery?filter=shinsa",
                 title: "Shinsya (Cinnabar Red)",
-                meta: "Hallmark pieces glowing in crimson",
-                body: "By expertly guiding kiln-transformation (yohen), Machinao blended vivid crimson with purples and indigo tones. This kiln-varied Shinsya glaze became synonymous with his name.",
+                meta: "Hallmark Machinao bonsai pots glowing in crimson",
+                body: "By expertly guiding kiln-transformation (yohen), Machinao blended vivid crimson with purples and indigo tones. This kiln-varied Shinsya glaze became synonymous with his bonsai pots.",
                 image: "/images/辰砂釉正方直足鉢おどりその1図-正面.jpg",
-                alt: "Shinsya vase, Dancing Figure No.1",
+                alt: "Shinsya bonsai pot, Dancing Figure No.1",
               },
               {
                 href: "/en/gallery?filter=kaeragi",
                 title: "Kairagi Texture",
-                meta: "Textures that tell a story",
-                body: "Another signature technique is the kairagi glaze. Leveraging the different shrinkage rates of clay and glaze, he produced dramatic crackled surfaces reminiscent of plum bark—an achievement that demands great skill.",
+                meta: "Crackled skins enhancing bonsai displays",
+                body: "Another signature technique is the kairagi glaze. Leveraging different shrinkage rates of clay and glaze, he produced dramatic surfaces reminiscent of plum bark—prized by bonsai collectors worldwide.",
                 image: "/images/梅花皮釉円形三足鉢-梅の木-正面.jpg",
-                alt: "Kairagi plum tree pot",
+                alt: "Kairagi Machinao bonsai pot",
               },
               {
                 href: "/en/gallery?filter=seiji",
                 title: "Celadon Glazes",
-                meta: "A tranquil world of blue",
-                body: "His celadon work is noted for its dense, almost creamy depth of color. Thick, tactile glazes and subtle kiln variations reveal a mastery on par with his celebrated Shinsya pieces.",
+                meta: "Tranquil blues framing Shohin bonsai",
+                body: "His celadon work is noted for its dense, almost creamy depth of color. Thick, tactile glazes and subtle kiln variations reveal a mastery on par with his celebrated Shinsya series.",
                 image: "/images/クローム青磁釉正方直足鉢-キツネの図-正面.jpg",
-                alt: "Chrome celadon fox motif pot",
+                alt: "Celadon Machinao pot",
               },
               {
                 href: "/en/gallery?filter=kannyu",
                 title: "Large Craquelure Glaze",
-                meta: "Patterns etched into the surface",
+                meta: "Patterns etched across the pot surface",
                 body: "Harnessing the shrinkage difference between body and glaze, he created intricate crackle patterns. In Machinao’s works these lines become deliberate designs, meticulously controlled rather than accidental.",
                 image: "/images/青磁釉墨貫入撫肩直足鉢.jpg",
-                alt: "Large craquelure shoulder bowl",
+                alt: "Craquelure Machinao bonsai pot",
               },
               {
                 href: "/en/gallery?filter=mame",
                 title: "Miniature Pots",
-                meta: "Palm-sized expressions of form",
-                body: "Even pieces small enough to rest on a fingertip compress advanced techniques such as Shinsya, kairagi, and kiln-varied glazes. They are complete works of art that elevate the ‘mame-bonsai’ displays they accompany.",
+                meta: "Palm-sized expressions for mame bonsai",
+                body: "Even pieces small enough to rest on a fingertip compress advanced techniques such as Shinsya, kairagi, and kiln-varied glazes—miniature works that elevate the mame-bonsai displays they accompany.",
                 image: "/images/top/top-image3.jpg",
-                alt: "Miniature bonsai pot",
+                alt: "Miniature Machinao bonsai pot",
               },
               {
                 href: "/en/gallery",
                 title: "Other Works",
-                meta: "A spectrum of experimental pieces",
-                body: "Gold-splashed finishes, hidasuki firing marks, copper-set glazes, and expressive underglaze copper marbling all showcase Machinao’s creative spin on tradition. From the chemistry-driven glaze formulas to the deliberate placement of flecks based on classic techniques, you can see both his earnest discipline and playful spirit.",
+                meta: "A spectrum of experimental Machinao pieces",
+                body: "Gold-splashed finishes, hidasuki firing marks, copper-set glazes, and expressive underglaze copper marbling all showcase Machinao’s creative spin on tradition.",
                 image: "/images/黒釉黄釉茄子型極小鉢.jpg",
-                alt: "Eggplant-shaped micro pot",
+                alt: "Machinao experimental bonsai pot",
               },
             ].map((item) => {
               const imageUrl = encodeURI(item.image);
@@ -145,7 +165,7 @@ export default function HomePage() {
           <p className="font-serif text-sm tracking-[0.16em] text-accent">ABOUT</p>
           <h2 className="mt-6 font-serif text-3xl tracking-[0.12em]">About Machinao Imaoka</h2>
           <p className="mt-6 max-w-3xl text-sm leading-relaxed text-primary/80">
-            Here you will find a concise overview of Machinao’s life.
+            This section outlines Machinao’s life and how his bonsai pots blended practical horticultural needs with fine art aesthetics for shohin and mame bonsai.
           </p>
 
           <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
@@ -174,7 +194,7 @@ export default function HomePage() {
             Machinao’s Achievement: Mastering the Red of Shinsya
           </h2>
           <p className="mt-6 text-sm leading-relaxed text-primary/80">
-            Machinao Imaoka (1925-2001) made his name in the shohin bonsai world by releasing countless works through his command of glazes. One of his greatest contributions is said to be his mastery of the notoriously difficult Shinsya glaze, achieving stable hues that range from flaming crimson to deep reddish purple.
+            Machinao Imaoka (1925-2001) made his name in the shohin bonsai world by releasing countless works through his command of glazes. His Shinsya bonsai pots range from flaming crimson to deep reddish purple, a spectrum few potters have stabilized.
           </p>
           <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
@@ -218,7 +238,7 @@ export default function HomePage() {
           <p className="font-serif text-sm tracking-[0.16em] text-accent">SEAL SIGNATURE</p>
           <h2 className="mt-6 font-serif text-3xl tracking-[0.12em]">Seal Impressions</h2>
           <p className="mt-6 max-w-3xl text-sm leading-relaxed text-primary/80">
-            Seal impressions provide essential clues to identify a work’s era and series. Machinao’s pieces feature two primary seals—the character 町 (“Mach”) and the full name 町直 (“Machinao”). Early pieces occasionally bear the character 風 (“Kaze”).
+            Seal impressions provide essential clues to identify a work’s era and series. Machinao’s bonsai pots feature two primary seals—the character 町 (“Mach”) and the full name 町直 (“Machinao”). Early pieces occasionally bear the character 風 (“Kaze”).
           </p>
           <div className="mt-12 grid gap-10 md:grid-cols-2">
             {[
@@ -261,15 +281,15 @@ export default function HomePage() {
             {[
               {
                 title: "Bilingual Documentation",
-                body: "We maintain both Japanese and English pages, striving to reach researchers and collectors worldwide across borders.",
+                body: "We maintain both Japanese and English pages to reach researchers and collectors worldwide who seek Machinao’s bonsai pots and glaze research.",
               },
               {
                 title: "Preserving Machinao’s History",
-                body: "Our goal is to document Machinao’s footsteps from the pre-internet era without loss and pass them to future generations.",
+                body: "Our goal is to document Machinao’s footsteps—from Shinsya experiments to kairagi formulas—without loss and pass them to future generations.",
               },
               {
                 title: "A Place for Enthusiasts",
-                body: "We hope this archive becomes a community where admirers and researchers around the world who cherish Machinao’s bonsai pots can deepen their connections.",
+                body: "We hope this archive becomes a community where admirers and researchers can connect over Machinao’s bonsai pots and share new findings.",
               },
             ].map((item) => (
               <article key={item.title} className="space-y-4">
