@@ -44,11 +44,26 @@ export const metadata: Metadata = {
     description,
     type: "website",
   },
+  manifest: "/site.webmanifest",
   icons: {
     icon: [
       {
         url: "/images/top/imaokamachinao-favicon.jpg",
         type: "image/jpeg",
+      },
+    ],
+    apple: [
+      {
+        url: "/icons/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/icons/icon-512.png",
+        color: "#8c3123",
       },
     ],
   },
