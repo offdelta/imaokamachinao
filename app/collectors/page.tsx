@@ -41,7 +41,7 @@ export default function CollectorsPage() {
               href="/contact"
               className="inline-flex items-center gap-3 rounded-full bg-primary px-8 py-3 text-xs uppercase tracking-[0.24em] text-white transition hover:bg-accent"
             >
-              掲載を申し込む
+              掲載にご協力ください
             </Link>
             <Link
               href="/gallery"

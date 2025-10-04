@@ -41,7 +41,7 @@ export default function CollectorsPage() {
               href="/en/contact"
               className="inline-flex items-center gap-3 rounded-full bg-primary px-8 py-3 text-xs uppercase tracking-[0.24em] text-white transition hover:bg-accent"
             >
-              Share your photos
+              Please help us feature your photos
             </Link>
             <Link
               href="/en/gallery"
